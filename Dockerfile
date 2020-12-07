@@ -7,6 +7,7 @@ RUN apt-get install --assume-yes --no-install-recommends --no-install-suggests \
   ca-certificates \
   flex \
   git \
+  postgresql-plpython3-11 \
   postgresql-server-dev-11 
 
 RUN git clone https://github.com/bitnine-oss/AgensGraph-Extension.git /age 
