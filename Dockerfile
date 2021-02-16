@@ -10,6 +10,6 @@ RUN apt-get install --assume-yes --no-install-recommends --no-install-suggests \
   postgresql-plpython3-11 \
   postgresql-server-dev-11 
 
-RUN git clone https://github.com/bitnine-oss/AgensGraph-Extension.git /age 
+RUN git clone https://github.com/apache/incubator-age /age 
 
 RUN cd /age && make install 
