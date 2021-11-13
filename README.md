@@ -1,11 +1,11 @@
-# Docker AgensGraph-Extension
+# Docker Apache AGE for Postgres
 
-This is an image to build the [AgensGraph-Extension](https://github.com/bitnine-oss/AgensGraph-Extension) on the official PostgreSQL 11 Docker image. It can be run by executing 
+This is an image to build the [Apache AGE](https://github.com/apache/incubator-age/) on the official PostgreSQL 11 Docker image. It can be run by executing 
 
 
 ## Running the container 
 
-`docker run -it -e POSTGRES_PASSWORD=mypassword -pHostPort:5432 sorrell/agensgraph-extension`
+`docker run -it -e POSTGRES_PASSWORD=mypassword -pHostPort:5432 sorrell/apache-age`
 
 In the above command, replace `HostPort` with a port you'd like to forward to, or remove the `-p` flag altogether if you want to run `psql` from inside the container.
 
