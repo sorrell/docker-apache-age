@@ -1,9 +1,8 @@
 # Docker Apache AGE for Postgres
 
-This is an image to build the [Apache AGE](https://github.com/apache/incubator-age/) on the official PostgreSQL 11 Docker image. It can be run by executing 
+This is an image to build the [Apache AGE](https://github.com/apache/incubator-age/) on the official PostgreSQL 11 Docker image. It can be run by executing
 
-
-## Running the container 
+## Running the container
 
 `docker run -it -e POSTGRES_PASSWORD=mypassword -pHostPort:5432 sorrell/apache-age`
 
@@ -39,9 +38,9 @@ For example, if we wanted to create a graph with 4 nodes, we could do something 
 
 ```sql
 SELECT * from cypher('my_graph_name', $$
-  CREATE (a:Part {part_num: '123'}), 
-         (b:Part {part_num: '345'}), 
-         (c:Part {part_num: '456'}), 
+  CREATE (a:Part {part_num: '123'}),
+         (b:Part {part_num: '345'}),
+         (c:Part {part_num: '456'}),
          (d:Part {part_num: '789'})
 $$) as (a agtype);
 
@@ -91,6 +90,7 @@ SELECT * from cypher('age', $$
   RETURN p
 $$) as (a agtype);
 ```
+
 ```javascript
 // RESULTS
 // ROW 1
@@ -146,3 +146,4 @@ $$) as (a agtype);
    }::"vertex"
 ]::"path"
 (2 rows)
+```
