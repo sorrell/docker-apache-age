@@ -1,16 +1,24 @@
 # Docker Apache AGE for Postgres
 
-This is an image to build the [Apache AGE](https://github.com/apache/incubator-age/) on the official PostgreSQL 11 Docker image. It can be run by executing
+This is an image to build the [Apache AGE](https://github.com/apache/incubator-age/) on the official PostgreSQL 11 Docker image. It can be run by executing 
 
 ## Running the container
 
-`docker run -it -e POSTGRES_PASSWORD=mypassword -pHostPort:5432 sorrell/apache-age`
+It can be run by executing:
 
-In the above command, replace `HostPort` with a port you'd like to forward to, or remove the `-p` flag altogether if you want to run `psql` from inside the container.
+`docker run -it -e POSTGRES_PASSWORD=mypassword -p {HostPort}:5432 sorrell/apache-age`
+
+In the above command, replace `{HostPort}` with a port you'd like to forward to, or remove the `-p` flag altogether if you want to run `psql` from inside the container.
 
 ## Loading AGE
 
-Connect to your containerized Postgres instance and then run the following commands:
+Connect to your containerized Postgres instance, for example:
+
+```sh
+psql -h 0.0.0.0 -p {HostPort} -U postgres
+```
+
+Then run the following commands:
 
 ```sql
 CREATE EXTENSION age;
@@ -85,7 +93,7 @@ $$) as (a agtype);
 Next we can return the path we just created (results have been formatted for readability):
 
 ```sql
-SELECT * from cypher('age', $$
+SELECT * from cypher('my_graph_name', $$
   MATCH p=(a)-[]-(b)
   RETURN p
 $$) as (a agtype);
