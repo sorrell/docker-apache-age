@@ -13,5 +13,5 @@ RUN apt-get install --assume-yes --no-install-recommends --no-install-suggests \
 RUN git clone https://github.com/apache/incubator-age /age 
 
 RUN cd /age && \
-  git checkout tags/v0.6.0 && \
+  git checkout tags/v0.7.0-rc0 && \
   make install 
